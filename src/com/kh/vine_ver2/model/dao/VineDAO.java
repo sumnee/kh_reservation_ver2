@@ -112,6 +112,64 @@ public class VineDAO {
 		return vList;
 	}
 	
+	public int updateNumber(Vine vine) {
+		int result = 0;
+		String sql = "UPDATE WINE_TBL SET WINE_NUMBER = '"+vine.getNumber()+"' WHERE WINE_PHONE = '"+vine.getWinePhone()+"'";
+		try {
+			Class.forName(DRIVER_NAME);
+			Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+			Statement stmt = conn.createStatement();
+			result = stmt.executeUpdate(sql);
+			
+			conn.close();
+			stmt.close();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public int updateDate(Vine vine) {
+		int result = 0;
+		String sql = "UPDATE WINE_TBL SET WINE_DATE = '"+vine.getWineDate()+"',WINE_TIME = '"+vine.getWineTime()+"' WHERE WINE_PHONE = '"+vine.getWinePhone()+"'";
+		try {
+			Class.forName(DRIVER_NAME);
+			Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+			Statement stmt = conn.createStatement();
+			result = stmt.executeUpdate(sql);
+			
+			conn.close();
+			stmt.close();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public int deleteInfo(String winePhone) {
+		int result = 0;
+		String sql = "UPDATE WINE_TBL SET WINE_CALCEL = 'Y' WHERE WINE_PHONE = '"+winePhone+"'";
+		
+		try {
+			Class.forName(DRIVER_NAME);
+			Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+			Statement stmt = conn.createStatement();
+			result = stmt.executeUpdate(sql);
+			
+			stmt.close();
+			conn.close();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 	
 	
 	

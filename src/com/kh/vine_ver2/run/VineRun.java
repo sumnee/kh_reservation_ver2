@@ -32,12 +32,31 @@ public class VineRun {
 					vView.displayError("예약 요청 실패, 계속 오류 발생 시 전화문의 부탁드립니다.");
 				}
 				break;
+				
 			case 2:
 				// 예약 인원 변경하기 (번호로)
+				winePhone = vView.inputPhone("인원을 변경");
+				vine = vCon.printByPhone(winePhone);
+				if(winePhone != null) {
+					vine = vView.modifyVineNumber(vine);
+					vCon.modifyNumber(vine);
+				} else {
+					vView.displayError("해당 번호의 예약이 없습니다.");
+				}
 				break;
+				
 			case 3:
 				// 예약 일시 변경하기 (번호로)
+				winePhone = vView.inputPhone("날짜, 시간을 변경");
+				vine = vCon.printByPhone(winePhone);
+				if(winePhone != null) {
+					vine = vView.modifyDateTime(vine);
+					vCon.modifyDate(vine);
+				} else {
+					vView.displayError("해당 번호의 예약이 없습니다.");
+				}
 				break;
+				
 			case 4:
 				// 예약 현황 확인 (번호로)
 				winePhone = vView.inputPhone("조회");
@@ -62,7 +81,15 @@ public class VineRun {
 				
 			case 6:
 				// 예약 취소 하기 (번호로)
+				winePhone = vView.inputPhone("취소");
+				result = vCon.removeWine(winePhone);
+				if(result > 0) {
+					vView.displaySuccess("예약 취소 완료");
+				} else {
+					vView.displayError("예약 취소 실패, 계속 오류 시 가게로 전화 부탁드립니다.");
+				}
 				break;
+				
 			case 0:
 				// 종료
 				vView.printMessage("[프로그램을 종료] VineWine 예약 프로그램에 방문해주셔서 감사합니다.");

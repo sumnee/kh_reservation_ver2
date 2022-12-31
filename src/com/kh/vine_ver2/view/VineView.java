@@ -86,6 +86,30 @@ public class VineView {
 		}
 	}
 	
+	public Vine modifyVineNumber(Vine vine) {
+		System.out.println(" ~~~ 예약 인원수 변경 ~~~ ");
+		System.out.println("예약자 이름 : " + vine.getWineName()); //오류시 이부분 확인
+		System.out.println("기존 예약 인원 : " + vine.getNumber());
+		System.out.print("변경 인원수를 입력해주세요 >>> ");
+		int number = sc.nextInt();
+		vine.setNumber(number);
+		return vine;
+	}
+	
+	public Vine modifyDateTime(Vine vine) {
+		System.out.println(" ~~~ 예약 일시 변경 ~~~ ");
+		System.out.println("기존 예약 날짜 : " + vine.getWineDate()); //오류시 이부분 확인
+		System.out.print("변경 날짜를 입력해주세요 >>> ");
+		String wineDate = sc.next();
+		System.out.println("기존 예약 시간 : " + vine.getWineTime());
+		System.out.print("변경 시간 입력해주세요 >>> ");
+		String wineTime = sc.next();
+		
+		vine.setWineDate(wineDate);
+		vine.setWineTime(wineTime);
+		return vine;
+	}
+	
 	
 	public void displaySuccess(String msg) {
 		System.out.println("[성공] : " + msg);

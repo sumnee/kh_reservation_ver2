@@ -35,8 +35,35 @@ public class VineController {
 	public List<Vine> printByName(String wineName) {
 		VineDAO vDao = new VineDAO();
 		List<Vine> vList = vDao.selectByName(wineName);
-		return vList;
-		
+		return vList;		
+	}
+	
+	/**
+	 * 예약 인원 변경
+	 * @param vine
+	 * @return
+	 */
+	public int modifyNumber(Vine vine) {
+		VineDAO vDao = new VineDAO();
+		int result = vDao.updateNumber(vine);
+		return result;
+	}
+	
+	/**
+	 * 예약 일시 변경
+	 * @param vine
+	 * @return
+	 */
+	public int modifyDate(Vine vine) {
+		VineDAO vDao = new VineDAO();
+		int result = vDao.updateDate(vine);
+		return result;
+	}
+	
+	public int removeWine(String winePhone) {
+		VineDAO vDao = new VineDAO();
+		int result = vDao.deleteInfo(winePhone);
+		return result;
 	}
 
 }
