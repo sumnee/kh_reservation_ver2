@@ -37,7 +37,7 @@ public class VineRun {
 				// 예약 인원 변경하기 (번호로)
 				winePhone = vView.inputPhone("인원을 변경");
 				vine = vCon.printByPhone(winePhone);
-<<<<<<< HEAD
+
 				if(vine != null) {
 					vine = vView.modifyVineNumber(winePhone);
 					result = vCon.modifyNumber(vine);
@@ -46,13 +46,13 @@ public class VineRun {
 					} else {
 						vView.displayError("예약 변경 실패, 전화 문의 부탁드립니다.");
 					}
-=======
+
 				if(winePhone != null) {
 					vine = vView.modifyVineNumber(vine);
 					vCon.modifyNumber(vine);
->>>>>>> branch 'master' of https://github.com/sumnee/kh_reservation_ver2.git
 				} else {
 					vView.displayError("해당 번호의 예약이 없습니다.");
+				}
 				}
 				break;
 				
@@ -111,7 +111,10 @@ public class VineRun {
 				break;
 			}
 
-		}
-	}
+	
 
+		}
+	
+	}
 }
+
