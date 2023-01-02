@@ -1,6 +1,3 @@
-DB 연동해서 발전시키기
-
-수정도 가능하게~
 
 CREATE TABLE WINE_TBL(
     WINE_NAME VARCHAR2(20), 
